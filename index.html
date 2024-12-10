@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProtoTest</title>
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/protobufjs@7.X.X/dist/protobuf.js"></script>
+</head>
+<body>
+    <header>
+        <menu>
+            <button id="btn-clear" class="btn">Clear</button>
+            <button id="btn-reload" class="btn">Refresh</button>
+            <button id="btn-download" class="btn">Download</button>
+            <button id="btn-load" class="btn">Load</button>
+            <input type="file" name="encoded-upload" id="encoded-upload" style="display: none;">
+        </menu>
+    </header>
+    <main id="main">
+        <div class="editor-container">
+            <header>
+                <menu>
+                    <button id="btn-clear-proto" class="btn">Clear</button>
+                </menu>
+            </header>
+            <div class="editor" id="proto-editor" spellcheck="false" contenteditable="true">
+            </div>
+            <div class="status" id="proto-status"></div>
+        </div>
+        <div id="resize">&nbsp;</div>
+        <div class="editor-container">
+            <header>
+                <menu>
+                    <button id="btn-clear-json" class="btn">Clear</button>
+                </menu>
+            </header>
+            <div class="editor" id="json-editor" spellcheck="false" contenteditable="true">
+            </div>
+            <div class="status" id="json-status"></div>
+        </div>
+    </main>
+</body>
+</html>
