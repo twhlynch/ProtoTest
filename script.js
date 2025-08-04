@@ -290,6 +290,10 @@ function validateJson() {
 }
 function validateProto() {
     try {
+        if (protoEditor.textContent.trim() == "") {
+            localStorage.setItem("prototest-protobuf-definition", protoEditor.textContent);
+        }
+
         let { root } = protobuf.parse(protoEditor.textContent, { keepCase: true });
         let message = root.lookupType(getRootType());
 
@@ -297,6 +301,7 @@ function validateProto() {
         if(errMsg) throw Error(errMsg);
 
         protoStatus.classList.remove("bad");
+        localStorage.setItem("prototest-protobuf-definition", protoEditor.textContent);
     } catch (e) {
         console.error(e);
         if (jsonStatus.classList.contains("bad")) {
@@ -444,4 +449,10 @@ message Color
     float b = 3;
     float a = 4;
 }`);
+
+let oldProto = localStorage.getItem("prototest-protobuf-definition");
+if (oldProto) {
+    setProto(oldProto);
+}
+
 reload();
